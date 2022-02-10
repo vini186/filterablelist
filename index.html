@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <title>My Contacts</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align"> MY CONTACTS</h1>
+        <input type="text" id="filterInput" placeholder="Search names....">
+        <ul id="names" class="collection with-header">
+            <li  class="collection-header">
+            <h4>A</h4>
+          </li>  
+        <li id="names" class="collection-item">
+            <a href="#">apple</a>
+        </li>
+        <li id="names" class="collection-item">
+            <a href="#">andy</a>
+        </li>
+        <li id="names" class="collection-item">
+            <a href="#">ant</a>
+        </li>
+        <li id="names" class="collection-item">
+            <a href="#">aero</a>
+        </li>
+        <li class="collection-header">
+        <h4>B</h4>
+        </li>
+        <li id="names" class="collection-item">
+            <a href="#">ball</a>
+        </li>
+        <li id="names" class="collection-item">
+            <a href="#">bag</a>
+        </li>
+        <li id="names" class="collection-item">
+            <a href="#">bat</a>
+        </li>
+        <li id="names" class="collection-item">
+            <a href="#">brado</a>
+        </li>
+        <li class="collection-header">
+        <h4>C</h4>
+        </li>
+        <li id="names" class="collection-item">
+            <a href="#">cat</a>
+        </li>
+        <li id="names" class="collection-item">
+            <a href="#">cady</a>
+        </li>
+        <li id="names" class="collection-item">
+            <a href="#">cot</a>
+        </li>
+        <li id="names" class="collection-item">
+            <a href="#">cury</a>
+        </li>
+    </ul>
+    <script>
+        let filterInput = document.getElementById('filterInput');
+        //add event listener
+        filterInput.addEventListener('keyup',filterNames);
+        function filterNames() {
+              //get value of input
+              let filterValue = document.getElementById('filterInput').value.toUpperCase();
+        
+        //get names ul
+        let ul = document.getElementById('names');
+        //get lis from ul
+        let li=ul.querySelectorAll('li.collection-item');
+
+        //loop through collection item lis
+        for(let i=0; i<li.length; i++) {
+         let a= li[i].getElementsByTagName('a')[0];
+        // if matched
+        if(a.innerHTML.toUpperCase().indexOf(filterValue)> -1) {
+            li[i].style.display = '';
+        } else {
+        li[i].style.display ='none'
+        }
+        }
+
+    }
+
+    </script>
+    
+</body>
+</html>
